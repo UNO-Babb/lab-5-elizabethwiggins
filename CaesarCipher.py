@@ -27,19 +27,9 @@ def decode(message, key):
     message = message.upper()
     message = ""
     
-    runDecode=input("Would you like to decode a message?: (Y/N)")
-    if runDecode=="Y":
-        message = input("Enter a message: ")
-        key = int(input("Enter a key: "))
 
-    for letter in message:
-        if (alpha.find(letter) >= 0): #check to see if the letter is actually a letter
-            spot = (alpha.find(letter) - key) % 26
-            plaintext = message + alpha[spot]
-        else: # letter must have been a number, symbol, or punctuation.
-            plaintext = message + letter
-            plaintext = decode(message, key)
-            print ("Decrypted:", plaintext)
+
+
 
 
 def main():
@@ -50,6 +40,14 @@ def main():
     print ("Encrypted:", secret)
 
 
+    def decode(message, key):
+        #We will want to decode the message here.
+        alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        message = message.upper()
+        message = ""
+    runDecode=input("Would you like to decode the message?: (Y/N)")
+    if runDecode=="Y":
+        print ("Decyrpted: ", message)
 
     
 
